@@ -15,20 +15,33 @@ test(t2, [nondet]) :- membro(7, [1, 3, 7]).
 test(t3, all(X == [1, 3, 7, -2])) :- membro(X, [1, 3, 7, -2]).
 
 :- end_tests(membro).*/
+%casos:
+%[1]->[1],
+%[1,2]->[1,2],[2,1]
+%[1,2,3]->[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]
 
-membro(X, [X | _]).
-membro(X, [_ | XS]) :-
-    membro(X, XS).
+permutacao([X | _], [X|_]).
+permutacao([X | _], [_|X]).
+permutacao([_|X], [_|X]).
+permutacao([_|X], [X|_]).
 
- 
-
-permutacao(X, [X | _]).
-permutacao(X, [_ | XS]) :-
-    permutacao(X, XS).
-
-permutacao([X | Xr], YL) :-
-    permutacao(X, YL),
-    permutacao(Xr, YL).
-
+%.
+%
+%permutacao(X,Y).
+%
+%membro(X, [X | _]).
+%membro(X, [_ | XS]) :-
+%    membro(X, XS).
+%
+% 
+%
+%permutacao(X, [X | _]).
+%permutacao(X, [_ | XS]) :-
+%    permutacao(X, XS).
+%
+%permutacao([X | Xr], YL) :-
+%    permutacao(X, YL),
+%    permutacao(Xr, YL).
+%
 
 

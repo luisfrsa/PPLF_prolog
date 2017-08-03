@@ -1,30 +1,15 @@
-%casos base, se X ou Y
 
-inarray(X,[X|_]).
+sequencia(X,X,[X]).
 
-inarray(X,[Z|_]):-
-	inarray(X,Z).
+sequencia(X,Y,[X|Lr]):-
+	X < Y,
+	X0 is X + 1,
+	sequencia(X0,Y,Lr).
 
-inarray(X,[_|Zr]):-
-	inarray(X,Zr).
+%Casos:
 
-sequencia(I,_,L):-
-    inarray(I,L).
-
-sequencia(I,F,L):-
-    I<F,	
-	sequencia(Inc,F,L),
-	Inc is I + 1.
-
-
+%sequencia(1,1,[1]).
+%sequencia(1,2,[1,2]).
 %sequencia(1,3,[1,2,3]).
-
-
-
-%sequencia(X,[X|_]).
-%sequencia(X,[_|Xr]):-
-	%sequencia(X,Xr).
-
-
-
-%sequencia(I,F,S).
+%sequencia(1,4,[1,2,3,4]).
+%sequencia(1,5,[1,2,3,4,5]).
