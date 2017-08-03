@@ -20,10 +20,32 @@ test(t3, all(X == [1, 3, 7, -2])) :- membro(X, [1, 3, 7, -2]).
 %[1,2]->[1,2],[2,1]
 %[1,2,3]->[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]
 
-permutacao([X | _], [X|_]).
-permutacao([X | _], [_|X]).
-permutacao([_|X], [_|X]).
-permutacao([_|X], [X|_]).
+%permutacao([X | _], [X|_]).
+%permutacao([X | _], [_|X]).
+%permutacao([_|X], [_|X]).
+%permutacao([_|X], [X|_]).
+
+%permutacao(X,[X|_]).
+%
+%membro(X,[_|YS]):-
+%	membro(X,YS). 
+
+membro(X,[X|_]).
+membro(X,[_|YS]):-
+	membro(X,YS). 
+
+permutacao([],_):-!.
+
+permutacao([X|Xr],Y):-
+	membro(X,Y),
+	permutacao(Xr,Y).
+
+%permutacao([X|Xr],[X|Yr]):-
+%	permutacao(Xr,Yr).
+
+
+
+
 
 %.
 %
