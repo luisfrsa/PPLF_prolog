@@ -44,6 +44,16 @@ permutacao([X|Xr],Y):-
 %	permutacao(Xr,Yr).
 
 
+ver 
+inverte(X,X).
+
+inverte([Xc|Xr],Li):-
+	inverte(Xr,L0),
+	Li = [L0,Xc].
+
+
+palindromo(L).
+
 
 
 

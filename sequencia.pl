@@ -1,5 +1,5 @@
 
-sequencia(X,X,[X]).
+sequencia(X,X,[X]):-!.
 
 sequencia(X,Y,[X|Lr]):-
 	X < Y,
